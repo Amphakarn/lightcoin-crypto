@@ -60,17 +60,22 @@ class Withdrawal extends Transaction {
 // DRIVER CODE BELOW
 // We use the code below to "drive" the application logic above and make sure it's working as expected
 
-const myAccount = new Account("bee");
-
-console.log('Account Holder: ', myAccount.username);
-
-console.log('Starting Balance: ', myAccount.balance);
-
-const t1 = new Withdrawal(50.25, myAccount);
+const beeAccount = new Account("Bee");
+console.log('Account Holder: ', beeAccount.username);
+console.log('Starting Balance: ', beeAccount.balance);
+const t1 = new Withdrawal(50.25, beeAccount);
 t1.commit();
+const t2 = new Deposit(120.00, beeAccount);
+t2.commit();
+console.log('Ending Balance:', beeAccount.balance, "\n");
 
-const t3 = new Deposit(120.00, myAccount);
+const benjAccount = new Account("Benj");
+console.log('Account Holder: ', benjAccount.username);
+console.log('Starting Balance: ', benjAccount.balance);
+const t3 = new Deposit(200, benjAccount);
 t3.commit();
+const t4 = new Withdrawal(20.00, benjAccount);
+t4.commit();
+console.log('Ending Balance:', benjAccount.balance, "\n");
 
-console.log('Ending Balance:', myAccount.balance);
-console.log(myAccount.transactions);
+// console.log(myAccount.transactions);
