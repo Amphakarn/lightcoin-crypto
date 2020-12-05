@@ -73,4 +73,4 @@ const t3 = new Deposit(120.00, myAccount);
 t3.commit();
 
 console.log('Ending Balance:', myAccount.balance);
-console.log(myAccount.transactions)
+console.log(myAccount.transactions);
