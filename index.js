@@ -1,19 +1,19 @@
 class Account {
   constructor(username) {
     this.username = username;
-    this.transactions = [];
+    this._transactions = [];
   }
 
   get balance() {
     let balance = 0;
-    for (const transaction of this.transactions) {
+    for (const transaction of this._transactions) {
       balance += transaction.value;
     }
     return balance;
   }
 
   addTransaction(transaction) {
-    this.transactions.push(transaction);
+    this._transactions.push(transaction);
   }
 }
 
@@ -22,6 +22,7 @@ class Transaction {
     this.amount = amount;
     this.account = account;
   }
+
   commit() {
     if (this.isAllowed()) {
       this.time = new Date();
@@ -78,4 +79,4 @@ const t4 = new Withdrawal(20.00, benjAccount);
 t4.commit();
 console.log('Ending Balance:', benjAccount.balance, "\n");
 
-// console.log(myAccount.transactions);
+// console.log(beeAccount._transactions);
